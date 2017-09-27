@@ -1,0 +1,176 @@
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    height:100%;
+    width:100%;
+    background-image: -webkit-linear-gradient(180deg, #336699 25%, #0f1b28 100%);
+    background-image: -moz-linear-gradient(180deg, #336699 25%, #0f1b28 100%);
+    background-image: -o-linear-gradient(180deg, #336699 25%, #0f1b28 100%);
+    background-image: linear-gradient(180deg, #336699 25%, #0f1b28 100%);
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    font-size:100%;
+    color:white;
+    margin:0;
+    padding:0;
+}
+
+.main-app {
+    padding:8%;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size:45px;
+    display: inline-block;
+    margin:0 auto 70px auto;
+    text-shadow: 2px 2px #555555;
+
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+
+    animation-duration: .4s;
+    -webkit-animation-duration: .4s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.day-label {
+    margin-bottom:20px;
+}
+
+.day-group {
+    display:flex;
+    margin-bottom:20px;
+    margin-left:2px;
+}
+
+.day-panel {
+    background-color: white;
+    color:#555555;
+    border-radius:5px;
+    padding:12px;
+    position:relative;
+    height:100px;
+    margin-right:10px;
+    flex: 0 calc(100%/9);
+}
+
+
+
+.day-panel:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    20% {
+        transform: translate3d(2px, 0, 0);
+    }
+    100% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+.day-panel .date {
+    font-weight: 800;
+}
+
+.day-panel:hover .date {
+    text-decoration: underline;
+}
+
+.day-panel .conditions {
+    position: absolute;
+    bottom:5px;
+
+    max-width: 85%;
+    min-height: 50px;
+}
+
+@media screen and (max-width:768px) {
+    .main-app {
+        padding:100px 12% 100px 12%;
+    }
+
+    .day-group {
+        flex-direction: column;
+        margin-left:0;
+    }
+
+    .day-panel {
+        width:100%;
+        max-width:100%;
+        height:auto;
+        display:flex;
+        margin-right:0;
+        padding:15px;
+        border-radius:0;
+        margin-bottom:1px;
+    }
+
+    .day-panel:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        margin-bottom:0;
+    }
+
+    .day-panel:first-child {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .day-panel .date {
+        flex: 1;
+    }
+    .day-panel .conditions {
+        position: static;
+        min-height: 0;
+    }
+
+    .day-label {
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width:450px) {
+    .main-app {
+        padding:100px 0 100px 0;
+    }
+
+    .day-panel {
+        margin-bottom:2px;
+    }
+
+    .day-panel:last-child {
+        border-radius:0;
+        margin-bottom:0;
+    }
+
+    .day-panel:first-child {
+        border-radius: 0;
+    }
+
+}
+
+
